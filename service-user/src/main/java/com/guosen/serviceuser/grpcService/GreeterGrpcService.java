@@ -4,13 +4,10 @@ import com.guosen.serviceuser.proto.helloworld.HelloReply;
 import com.guosen.serviceuser.proto.helloworld.HelloRequest;
 import com.guosen.serviceuser.proto.helloworld.GreeterGrpc.GreeterImplBase;
 
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @GrpcService
-@EnableDiscoveryClient
 public class GreeterGrpcService extends GreeterImplBase {
     @Override
     public void sayHello(HelloRequest request ,StreamObserver<HelloReply> responseObserver){

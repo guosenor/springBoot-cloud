@@ -20,7 +20,6 @@ public class HelloGrpcService {
             HelloReply response = this.stub.sayHello(HelloRequest.newBuilder().setName(msg).build());
             return response.getMessage();
         } catch (final StatusRuntimeException e) {
-            //TODO: handle exception
             return "FAILED with " + e.getStatus().getCode();
         }
  

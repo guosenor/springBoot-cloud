@@ -14,7 +14,6 @@ import org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistry;
 import org.springframework.cloud.consul.discovery.ConsulDiscoveryProperties;
 
 
-
 @Configuration
 public class AfterStartUp implements ApplicationListener<ContextRefreshedEvent>{
 
@@ -38,7 +37,7 @@ public class AfterStartUp implements ApplicationListener<ContextRefreshedEvent>{
         service.setPort(grpcPort);
         service.setAddress(properties.getHostname());
         NewService.Check check = new NewService.Check();
-        check.setGrpc(service.getAddress()+":"+service.getPort()+"/grpc.health.v1/Health");
+        check.setGrpc(service.getAddress()+":"+service.getPort()+"/grpc.health.v1.Health/Check");
         check.setGrpcUseTLS(false);
         // check.setHttp("http://"+service.getAddress()+":"+httpPort+properties.getHealthCheckPath());
         // check.setTcp("tcp:"+service.getPort());

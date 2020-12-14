@@ -24,6 +24,11 @@ public class HelloController {
          String msg = helloGrpcService.sayHello("guosen");
          return msg;
     }
+    @RequestMapping("/serviceDiscovery")
+    public Object serviceDiscovery() {
+         Object serviceList = helloGrpcService.discovery("guosen");
+         return serviceList;
+    }
     @RequestMapping("/discovery")
     public Object discovery() {
          return this.dc;

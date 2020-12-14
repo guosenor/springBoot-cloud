@@ -1,6 +1,10 @@
 package com.guosen.gw.service;
 
 import com.guosen.serviceuser.proto.helloworld.HelloReply;
+
+import java.util.ArrayList;
+
+import com.guosen.serviceuser.proto.helloworld.DiscoveryReply;
 import com.guosen.serviceuser.proto.helloworld.HelloRequest;
 import com.guosen.serviceuser.proto.helloworld.GreeterGrpc.GreeterBlockingStub;
 
@@ -22,6 +26,14 @@ public class HelloGrpcService {
         } catch (final StatusRuntimeException e) {
             return "FAILED with " + e.getStatus().getCode();
         }
- 
+    }
+
+    public Object discovery(String msg) {
+        try {
+            DiscoveryReply response = this.stub.discovery(HelloRequest.newBuilder().setName(msg).build());
+            return  response.getServicesList();
+        } catch (final StatusRuntimeException e) {
+            return "FAILED with " + e.getStatus().getCode();
+        }
     }
 }

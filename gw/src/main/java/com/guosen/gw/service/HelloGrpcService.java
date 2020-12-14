@@ -2,7 +2,6 @@ package com.guosen.gw.service;
 
 import com.guosen.serviceuser.proto.helloworld.HelloReply;
 
-import java.util.ArrayList;
 
 import com.guosen.serviceuser.proto.helloworld.DiscoveryReply;
 import com.guosen.serviceuser.proto.helloworld.HelloRequest;

@@ -1,6 +1,5 @@
 package com.guosen.gw.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.guosen.gw.pojo.UserForm;
 import com.guosen.gw.util.HandleFormValidateError;
 import com.guosen.serviceuser.proto.user.UserFormRequest;

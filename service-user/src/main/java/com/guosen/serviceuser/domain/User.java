@@ -27,12 +27,11 @@ public class User implements Serializable {
        return  this.username;
     }
     public void setPassword(String pwd){
-      this.password = BCrypt.hashpw(pwd, BCrypt.gensalt());
+      this.password = pwd;
   }
 
   public Boolean checkPwd(String pwd){
-     Boolean b = BCrypt.checkpw(pwd, this.password);
-     return b;
+     return BCrypt.checkpw(pwd, this.password);
   }
 
     @Override

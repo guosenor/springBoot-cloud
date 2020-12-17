@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
-    @Select("SELECT id, username, password FROM users WHERE username = #{username}")
+    @Select("SELECT id, username, password FROM users WHERE username = #{username} LIMIT 0,1")
     User findByUsername(@Param("username") String username);
 
     @Select("SELECT id, username FROM users WHERE id = #{id}")

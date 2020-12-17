@@ -13,12 +13,14 @@ service User {
 }
 
 message UserFormRequest { 
-    string username = 1;
-    string password = 2;
+     string username = 1;
+     string password = 2;
 } 
-
-message UserReply {
+message UserInfo{
     int64 id = 1;
     string username = 2;
-    string password = 3;
+}
+message UserReply {
+    int32 code = 1;
+    UserInfo user = 2;
 }

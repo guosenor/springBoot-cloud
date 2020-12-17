@@ -36,7 +36,7 @@ public class UserController {
           }
           UserReply user = this.stub
                     .login(UserFormRequest.newBuilder().setUsername(form.username).setPassword(form.password).build());
-          if(user.getId()!=0){
+          if(user.getCode()==0){
                return "{\"status\":\"success\"}";
           }
           return "{\"status\":\"fail\"}";
@@ -45,14 +45,14 @@ public class UserController {
      @ApiOperation(value = "用户注册")
      @RequestMapping(value = "/user/register", method = RequestMethod.POST, produces = "application/json")
      @ResponseBody
-     public String register(@RequestBody @Validated UserForm form, BindingResult userFormBindingResult) {
+     public Object register(@RequestBody @Validated UserForm form, BindingResult userFormBindingResult) {
           if (userFormBindingResult.hasErrors()) {
                return HandleFormValidateError.format(userFormBindingResult.getFieldErrors());
           }
           UserReply user = this.stub
                     .create(UserFormRequest.newBuilder().setUsername(form.username).setPassword(form.password).build());
-          if(user.getId()!=0){
-               return "{\"status\":\"success\"}";
+          if(user.getCode()==0){
+               return user.getAllFields();
           }
           return "{\"status\":\"fail\"}";
      }

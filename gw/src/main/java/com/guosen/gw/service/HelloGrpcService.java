@@ -1,11 +1,9 @@
 package com.guosen.gw.service;
 
-import com.guosen.serviceuser.proto.helloworld.HelloReply;
-
-
 import com.guosen.serviceuser.proto.helloworld.DiscoveryReply;
-import com.guosen.serviceuser.proto.helloworld.HelloRequest;
 import com.guosen.serviceuser.proto.helloworld.GreeterGrpc.GreeterBlockingStub;
+import com.guosen.serviceuser.proto.helloworld.HelloReply;
+import com.guosen.serviceuser.proto.helloworld.HelloRequest;
 
 import org.springframework.stereotype.Service;
 
